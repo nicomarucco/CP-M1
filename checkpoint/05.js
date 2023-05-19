@@ -17,7 +17,23 @@ REQUISITOS
 
 function ordenarInstrumentos(instrumentos) {
   // Tu código aquí:
+  if(!Array.isArray(instrumentos)) return "Debe recibir un array de strings";
+  if(instrumentos.length === 0) return "El array no debe estar vacio"; 
+    for (let i = 0; i < instrumentos.length; i++) {
+      if(!Array.isArray(instrumentos)) return "Debe recibir un array de strings";
+      let x=i
+      for (let j = i+1; j < instrumentos.length; j++) {
+        if (instrumentos[j].charCodeAt(0) < instrumentos[x].charCodeAt(0)) x = j;
+      }
+      if(i !== x){
+        let aux=instrumentos[i];
+        instrumentos[i] = instrumentos[x];
+        instrumentos[x] = aux;
+      }
+    }
+    return instrumentos;
 }
+
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = {

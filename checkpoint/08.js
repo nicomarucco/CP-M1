@@ -27,7 +27,7 @@ REQUISITOS:
 
 LinkedList.prototype.pacienteEnMayorEspera = function () {
   // Tu código aquí
-  if (!this.head) {return null;}
+  if (!this.head) return null;
   let current = this.head;
   let maxEspera = this.head.value;
   while (current && current.next) {

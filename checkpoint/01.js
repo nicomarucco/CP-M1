@@ -50,6 +50,13 @@ REQUISITOS
 
 function henryHospital(lista) {
   // Tu código aquí:
+  let atendidas = new Queue(); //creo las nuevas Queues
+  let enEspera = new Queue();
+  for (const paciente of lista.array) { //itero para cada paciente del array
+    if (paciente.edad >= 18 && paciente.altura >= 150) atendidas.enqueue(paciente); //si cumple la condicion lo agrego a la Queue de atendidas
+    else enEspera.enqueue(paciente);                                                //caso contrario a en espera
+  }
+  return { Atendidas: atendidas, EnEspera: enEspera};    //devuelvo las Queues como objetos con las props
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

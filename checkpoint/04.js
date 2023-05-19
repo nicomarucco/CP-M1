@@ -19,8 +19,12 @@ REQUISITOS
 
 function contarPacientes(pacientes) {
   // Tu código aquí:
-  if (pacientes.length === 0) return "No hay pacientes en la planta"
-  return "La cantidad de pacientes en la planta son: " + pacientes.length;
+  if (pacientes.length === 0) return "No hay pacientes en la planta";
+  return `La cantidad de pacientes en la planta son: ${contador(pacientes)}`;
+  function contador(pacientes){
+    if (pacientes.length === 0) return 0
+    return 1 + contador(pacientes.slice(1))
+  }
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

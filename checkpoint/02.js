@@ -20,6 +20,27 @@
 
 function BuscandoError(expresion) {
   // Tu código aquí
+  let pila = [];
+  const x = {
+    ')' : '(',
+    ']' : '[',
+    '}' : '{'
+  };
+
+  for (let i = 0; i < expresion.length; i++) {
+    let caracter = expresion[i];
+
+    if (caracter === '(' || caracter === '[' || caracter === '{') pila.push(caracter)    //si me encuentro un caracter de apertura lo pusheo a mi pila
+    else if (caracter === ')' || caracter === ']' || caracter === '}') {                 //si me encuentro un caracter de cierre
+      if (pila.length === 0) return false;                                               //y este nunca fue abierto es false
+
+      let apertura = pila.pop();                                                         //"agarro el ultimo elemento de la pula"
+      if (x[caracter] !== apertura) return false;                                        // lo comparo, is no coincide con su par es falso      
+    }
+  }
+
+  return pila.length === 0;                                                              //si hice pop de toda la pila y no me retorno false esta balanceado
+
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️

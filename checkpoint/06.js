@@ -1,6 +1,6 @@
 /* 6️⃣ ** EJERCICIO 6 ** - Recursión numHabitaciones() 6️⃣
 
-A los pacientes de nuestro hospital se les asigna una abitación de forma secuencial. Cada habitación tiene una 
+A los pacientes de nuestro hospital se les asigna una habitación de forma secuencial. Cada habitación tiene una 
 capacidad máxima de pacientes. Si una habitación está llena se debe abrir una nueva. Necesitamos que escribas 
 una función que reciba dos números por parámetros:
   - La cantidad de pacientes.
@@ -22,6 +22,9 @@ REQUISITOS
 
 function numHabitaciones(pacientes, capacidad) {
   // Tu código aquí:
+  if (pacientes <= 0) return 0;
+  pacientes = pacientes-capacidad;
+  return 1 + numHabitaciones(pacientes,capacidad);
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
